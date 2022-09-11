@@ -60,7 +60,7 @@ namespace TJAPlayer3
 
         private static void MainImpl()
 		{
-            UpdateChecker.CheckForAndOfferUpdate();
+            //UpdateChecker.CheckForAndOfferUpdate();
 
 			mutex二重起動防止用 = new Mutex( false, "DTXManiaMutex" );
 

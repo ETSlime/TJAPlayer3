@@ -29,3 +29,6 @@ using System.Resources;
 // このアセンブリは「ライブラリ」である（難読化ツールへの指示）。
 // → デフォルトの true のままだと、アセンブリ public なメンバもすべて難読化されてしまう。
 [assembly: ObfuscateAssembly( false )]
+
+// setup version
+[assembly: AssemblyVersion("1.0.0")]

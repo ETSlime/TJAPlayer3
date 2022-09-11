@@ -27,3 +27,4 @@ using System.Resources;
 // Version information is now managed via GitVersion integration with the official build process
 
 [assembly: NeutralResourcesLanguageAttribute("ja-JP")]
+
