@@ -25,6 +25,8 @@ namespace TJAPlayer3
 
 		    lci.Add( new CItemList( "Rating",			CItemBase.Eパネル種別.通常, 0, "", "", C曲リストノードComparerRating.GetItemListValues()) );
 
+			lci.Add( new CItemList("Difficulty", CItemBase.Eパネル種別.通常, 0, "", "", new string[] { "Low", "High"}));//, "ふつう", "かんたん"
+
 			lci.Add( new CItemList( "戻る",		CItemBase.Eパネル種別.通常, 0, "", "", new string[] { "", 				"" } ) );
 			
 			base.Initialize( lci, false, "SORT MENU" );
@@ -64,13 +66,7 @@ namespace TJAPlayer3
 					);
 					this.act曲リスト.t選択曲が変更された(true);
 					break;
-                //case (int) EOrder.Level:
-                //    this.act曲リスト.t曲リストのソート(
-                //        CSongs管理.t曲リストのソート4_LEVEL順, eInst, ItemIndexToSortOrder(itemIndex),
-                //        this.act曲リスト.n現在のアンカ難易度レベル
-                //    );
-                //    this.act曲リスト.t選択曲が変更された( true );
-                //    break;
+
                 //case (int) EOrder.BestRank:
                 //    this.act曲リスト.t曲リストのソート(
                 //        CSongs管理.t曲リストのソート5_BestRank順, eInst, ItemIndexToSortOrder(itemIndex),
@@ -109,7 +105,7 @@ namespace TJAPlayer3
 						break;
 #endif
                 //ジャンル順
-				case EOrder.Genre:
+                case EOrder.Genre:
 					this.act曲リスト.t曲リストのソート(
                         //CDTXMania.Songs管理.t曲リストのソート7_更新日時順, eInst, ItemIndexToSortOrder(itemIndex),
                         //this.act曲リスト.n現在のアンカ難易度レベル
@@ -123,6 +119,20 @@ namespace TJAPlayer3
 			        );
 			        this.act曲リスト.t選択曲が変更された( true );
 			        break;
+/*				case EOrder.Level:
+					this.act曲リスト.t曲リストのソート(
+						CSongs管理.t曲リストのソート4_LEVEL順, eInst, ItemIndexToSortOrder(itemIndex),
+						this.act曲リスト.n現在のアンカ難易度レベル
+					);
+					this.act曲リスト.t選択曲が変更された(true);
+					break;*/
+				case EOrder.Difficulty:
+                    this.act曲リスト.t曲リストのソート(
+                        CSongs管理.t曲リストのソート4_LEVEL順, eInst, ItemIndexToSortOrder(itemIndex),
+						this.act曲リスト.n現在のアンカ難易度レベル
+					);
+                    this.act曲リスト.t選択曲が変更された(true);
+                    break;
 				case EOrder.Return:
 					this.tDeativatePopupMenu();
 					break;
@@ -168,7 +178,8 @@ namespace TJAPlayer3
 			Title = 1,
 		    Genre = 2,
 		    Rating = 3,
-            Return = 4
+			Difficulty = 4,
+            Return = 5
 		}
 
 		//-----------------
